@@ -65,7 +65,7 @@
 
 #
 > [!NOTE]
-> Script adını değiştirdiysen, `qb-inventory` export'unu çağıran diğer scriptlerde `exports['qb-inventory']` ifadesini `exports['spdy-inventory']` ile değiştirmen gerekir.
+> After downloading, rename the script to `qb-inventory`; all exports are the original `qb-inventory` exports.
 
 ---
 
@@ -73,10 +73,7 @@
 
 | Export | Açıklama |
 |---|---|
-| `AddItem(source, item, amount, slot, info)` | Oyuncuya eşya ekler |
-| `RemoveItem(source, item, amount, slot)` | Oyuncudan eşya siler |
-| `GetItemByName(source, item)` | Eşya bilgisini döndürür |
-| `HasItem(source, item, amount)` | Eşya kontrolü yapar |
+| `https://qbcore.net/docs/resources/qb-inventory` | qb-inventory official docs |
 
 ---
 
