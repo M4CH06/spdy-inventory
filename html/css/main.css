@@ -1,0 +1,1732 @@
+/* ==========================================================================
+   NoPixel 5.0 (NoPixel V) Inventory Theme
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  background: transparent !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Main HUD Container
+   -------------------------------------------------------------------------- */
+#inventory-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5vh 3vw 2vh 3vw;
+  background: radial-gradient(circle at center, rgba(16, 20, 27, 0.4) 0%, rgba(8, 10, 14, 0.75) 100%);
+  pointer-events: auto;
+  z-index: 100;
+}
+
+/* --------------------------------------------------------------------------
+   Top Navigation Bar
+   -------------------------------------------------------------------------- */
+.top-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 1.5vh;
+}
+
+.brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.inventory-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: 2.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+.stash-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.stash-pill {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(22, 26, 35, 0.6);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.stash-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.stash-pill.active {
+  background: #ffffff;
+  color: #0e1117;
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(14, 17, 23, 0.7);
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.filter-btn.active {
+  background: #ffffff;
+  color: #0e1117;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 42px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 22, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 0 32px 0 34px;
+  color: #ffffff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(24, 29, 39, 0.95);
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+#search-clear {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.settings-btn {
+  width: 42px;
+  height: 42px;
+  background: rgba(18, 22, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   Workspace Columns Layout
+   -------------------------------------------------------------------------- */
+.inventory-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1;
+  width: 100%;
+  max-height: calc(100vh - 140px);
+}
+
+/* Quick Stash Centered View (Screenshot 1 mode) */
+#inventory-hud.quick-stash-mode .top-nav-bar .header-controls {
+  display: none;
+}
+
+#inventory-hud.quick-stash-mode .column-body,
+#inventory-hud.quick-stash-mode .column-other {
+  display: none !important;
+}
+
+#inventory-hud.quick-stash-mode .inventory-content {
+  justify-content: flex-start;
+  padding-left: 1vw;
+}
+
+/* Section Cards & Headers */
+.section-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.section-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.weight-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.weight-indicator i {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   Slot Grid Layouts
+   -------------------------------------------------------------------------- */
+.slots-grid {
+  display: grid;
+  gap: 6px;
+}
+
+/* Player Pockets (5 columns x 4 rows) */
+#player-pockets-grid {
+  grid-template-columns: repeat(5, 78px);
+  grid-auto-rows: 78px;
+}
+
+/* Player Backpack (5 columns x 3 rows) */
+#player-backpack-grid {
+  grid-template-columns: repeat(5, 78px);
+  grid-auto-rows: 78px;
+}
+
+/* Body (2 columns x 4 rows) */
+.body-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 78px);
+  grid-auto-rows: 78px;
+  gap: 6px;
+}
+
+/* Accessories (2 columns x 2 rows) */
+.accessories-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 78px);
+  grid-auto-rows: 78px;
+  gap: 6px;
+}
+
+/* Other Inventory (Ground / Stash: 6-8 columns) */
+#other-grid {
+  grid-template-columns: repeat(7, 78px);
+  grid-auto-rows: 78px;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Custom Scrollbar for large stashes */
+#other-grid::-webkit-scrollbar {
+  width: 4px;
+}
+
+#other-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#other-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Individual Slot Styling (NoPixel 5.0 Square Tiles)
+   -------------------------------------------------------------------------- */
+.slot {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  background: rgba(20, 24, 32, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+}
+
+.slot:hover {
+  background: rgba(28, 33, 44, 0.95);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.slot.drag-hover {
+  background: rgba(35, 45, 60, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+/* NoPixel 5.0 Rarity & Contraband Glow Styles */
+.slot.rarity-contraband {
+  border-color: rgba(231, 76, 60, 0.85) !important;
+  background: radial-gradient(circle at center, rgba(231, 76, 60, 0.22) 0%, rgba(20, 24, 32, 0.95) 75%) !important;
+  box-shadow: inset 0 0 12px rgba(231, 76, 60, 0.3), 0 0 8px rgba(231, 76, 60, 0.35) !important;
+  animation: contrabandPulse 2.2s infinite alternate ease-in-out;
+}
+
+.slot.rarity-contraband::after {
+  content: "ILLEGAL";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #ff4d4d;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1px 4px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes contrabandPulse {
+  0% { border-color: rgba(231, 76, 60, 0.5); box-shadow: inset 0 0 8px rgba(231, 76, 60, 0.15); }
+  100% { border-color: rgba(255, 75, 75, 0.95); box-shadow: inset 0 0 16px rgba(255, 75, 75, 0.4), 0 0 10px rgba(231, 76, 60, 0.4); }
+}
+
+.slot.rarity-legendary {
+  border-color: rgba(241, 196, 15, 0.85) !important;
+  background: radial-gradient(circle at center, rgba(241, 196, 15, 0.2) 0%, rgba(20, 24, 32, 0.95) 75%) !important;
+  box-shadow: inset 0 0 12px rgba(241, 196, 15, 0.25), 0 0 8px rgba(241, 196, 15, 0.3) !important;
+}
+
+.slot.rarity-legendary::after {
+  content: "LEGEND";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #f1c40f;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1px 4px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.slot.rarity-rare {
+  border-color: rgba(52, 152, 219, 0.8) !important;
+  background: radial-gradient(circle at center, rgba(52, 152, 219, 0.18) 0%, rgba(20, 24, 32, 0.95) 75%) !important;
+  box-shadow: inset 0 0 10px rgba(52, 152, 219, 0.25) !important;
+}
+
+.slot.rarity-rare::after {
+  content: "RARE";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #3498db;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1px 4px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Watermark background icon for empty equipment slots */
+.equipment-slot .watermark-icon {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  transition: color 0.15s;
+}
+
+.equipment-slot:hover .watermark-icon {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* Hotbar Slot Number Tag (1, 2, 3, 4, 5 in Screenshot 1 & 2) */
+.hotbar-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 17px;
+  height: 17px;
+  background: #ffffff;
+  color: #0e1117;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Item Image Inside Slot */
+.item-image {
+  max-width: 68%;
+  max-height: 68%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Item Count Badge (Bottom-Right: x499,990, x3, etc.) */
+.item-count {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 5px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+/* Item Durability / Quality Bar (Bottom Edge) */
+.item-durability-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.item-durability-fill {
+  height: 100%;
+  width: 100%;
+  background: #2ecc71;
+  transition: width 0.3s ease;
+}
+
+.item-durability-fill.mid {
+  background: #f1c40f;
+}
+
+.item-durability-fill.low {
+  background: #e74c3c;
+}
+
+/* Dimmed slot when filtered out by search or category */
+.slot.dimmed {
+  opacity: 0.2 !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Hints Footer Bar
+   -------------------------------------------------------------------------- */
+.bottom-hints-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  height: 40px;
+  padding: 0 10px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+}
+
+.hint-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hint-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 10px;
+  color: #ffffff;
+}
+
+.hint-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  color: #ffffff;
+}
+
+.hint-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   Context Menu (Right Click)
+   -------------------------------------------------------------------------- */
+.np-context-menu {
+  position: absolute;
+  width: 170px;
+  background: rgba(18, 22, 30, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+  padding: 5px 0;
+  z-index: 1000;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.context-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.context-item i {
+  font-size: 12px;
+  width: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.context-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.context-item:hover i {
+  color: #ffffff;
+}
+
+.context-sep {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 4px 0;
+}
+
+/* --------------------------------------------------------------------------
+   Item Hover Tooltip Card
+   -------------------------------------------------------------------------- */
+.np-item-tooltip {
+  position: absolute;
+  min-width: 230px;
+  max-width: 300px;
+  background: rgba(14, 18, 25, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  padding: 12px 14px;
+  pointer-events: none;
+  z-index: 1200;
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.tooltip-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tooltip-count {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tooltip-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.tooltip-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.tooltip-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Inter', sans-serif;
+}
+
+.tooltip-meta-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tooltip-meta-row span:last-child {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tooltip-durability {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.durability-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.durability-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.durability-fill {
+  height: 100%;
+  width: 100%;
+  background: #2ecc71;
+}
+
+/* --------------------------------------------------------------------------
+   Split Modal
+   -------------------------------------------------------------------------- */
+.np-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+}
+
+.np-modal-box {
+  width: 320px;
+  background: #141822;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+}
+
+.modal-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.modal-body input {
+  width: 100%;
+  height: 42px;
+  background: rgba(25, 30, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.quick-amounts {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.quick-btn {
+  flex: 1;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.quick-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-btn {
+  flex: 1;
+  height: 38px;
+  border-radius: 4px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+}
+
+.modal-btn.confirm {
+  background: #ffffff;
+  color: #0e1117;
+}
+
+.modal-btn.cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.modal-btn:hover {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   Settings Modal Styling (NoPixel 5.0 Customization)
+   -------------------------------------------------------------------------- */
+.settings-modal-box {
+  width: 440px !important;
+}
+
+.settings-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(22, 27, 37, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+}
+
+.setting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.setting-label {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.setting-desc {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.np-select {
+  background: #10141d;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.np-select option {
+  background: #10141d;
+  color: #ffffff;
+}
+
+/* Toggle Switch */
+.np-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+}
+
+.np-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.np-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: .2s;
+  border-radius: 20px;
+}
+
+.np-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+input:checked + .np-slider {
+  background-color: #2ecc71;
+}
+
+input:checked + .np-slider:before {
+  transform: translateX(18px);
+}
+
+/* --------------------------------------------------------------------------
+   In-Game Hotbar Overlay (Keybind 'Z' Popup)
+   -------------------------------------------------------------------------- */
+.np-hotbar-hud {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.hotbar-slots-container {
+  display: flex;
+  gap: 8px;
+  background: rgba(12, 15, 21, 0.85);
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   Itembox Notifications (Bottom Right)
+   -------------------------------------------------------------------------- */
+.itemboxes-container {
+  position: absolute;
+  bottom: 8vh;
+  right: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 80;
+}
+
+.itembox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 20, 27, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 3px solid #ffffff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  min-width: 180px;
+  animation: slideInRight 0.25s ease-out;
+}
+
+.itembox.add {
+  border-left-color: #2ecc71;
+}
+
+.itembox.remove {
+  border-left-color: #e74c3c;
+}
+
+.itembox.use {
+  border-left-color: #3498db;
+}
+
+.itembox-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.itembox-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.itembox-label {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.itembox-amount {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Drag and Drop Helper
+   -------------------------------------------------------------------------- */
+.ui-draggable-dragging {
+  width: 78px !important;
+  height: 78px !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  opacity: 0.85 !important;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   NoPixel 5.0 Interactive Inspect Modal & Documents
+   -------------------------------------------------------------------------- */
+.inspect-modal-box {
+  width: 580px;
+  max-width: 92vw;
+  background: rgba(18, 22, 29, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.inspect-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(25, 30, 40, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.inspect-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.inspect-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.inspect-close:hover {
+  color: #e74c3c;
+}
+
+.inspect-content {
+  padding: 24px;
+  max-height: 75vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Evidence Bag */
+.evidence-container {
+  width: 100%;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  border: 2px solid #d1d5db;
+}
+
+.evidence-hazard-strip {
+  height: 20px;
+  background: repeating-linear-gradient(45deg, #f1c40f, #f1c40f 14px, #222222 14px, #222222 28px);
+}
+
+.evidence-head {
+  padding: 12px 18px 8px;
+  text-align: center;
+  border-bottom: 2px solid #111111;
+}
+
+.evidence-agency {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #111111;
+  text-transform: uppercase;
+}
+
+.evidence-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: #555555;
+  letter-spacing: 2px;
+}
+
+.evidence-barcode-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 6px;
+}
+
+.evidence-barcode {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 5px;
+  font-size: 26px;
+  font-weight: bold;
+  transform: scaleY(1.4);
+  user-select: none;
+  color: #111111;
+}
+
+.evidence-barcode-sub {
+  font-family: monospace;
+  font-size: 11px;
+  color: #4b5563;
+  margin-top: 4px;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.evidence-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.evidence-field.full {
+  grid-column: span 2;
+}
+
+.evidence-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.evidence-val {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+  background: #f3f4f6;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin-top: 2px;
+  border: 1px solid #e5e7eb;
+  word-break: break-all;
+}
+
+.evidence-stamp {
+  margin: 12px 20px 16px;
+  border: 2px dashed #c0392b;
+  color: #c0392b;
+  font-weight: 800;
+  font-size: 11px;
+  padding: 6px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  transform: rotate(-1.5deg);
+  text-transform: uppercase;
+}
+
+/* Written Note */
+.note-paper {
+  width: 100%;
+  min-height: 300px;
+  background: #fffdf0;
+  color: #2c3e50;
+  border-radius: 3px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(212, 175, 55, 0.15);
+  padding: 24px 30px 24px 45px;
+  position: relative;
+  border-left: 3px solid #ff7675;
+  line-height: 28px;
+  background-image: repeating-linear-gradient(#fffdf0, #fffdf0 27px, #e2e8f0 28px);
+  font-family: 'Segoe Print', 'Caveat', cursive, sans-serif;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #718096;
+  font-weight: 600;
+}
+
+.note-body {
+  font-size: 15px;
+  color: #1a202c;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 170px;
+}
+
+.note-footer {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #2d3748;
+  font-style: italic;
+}
+
+/* Polaroid Photo */
+.polaroid-card {
+  width: 320px;
+  background: #ffffff;
+  padding: 15px 15px 25px 15px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  border-radius: 2px;
+  transform: rotate(1deg);
+}
+
+.polaroid-photo-frame {
+  width: 100%;
+  height: 250px;
+  background: #111111;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  margin-top: 16px;
+  font-family: 'Segoe Print', cursive, sans-serif;
+  font-size: 14px;
+  color: #2d3748;
+  text-align: center;
+}
+
+/* State ID Card */
+.id-card-view {
+  width: 440px;
+  height: 260px;
+  background: linear-gradient(135deg, #1e3799, #0c2461);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+  position: relative;
+  padding: 16px 20px;
+  color: #ffffff;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.id-seal-bg {
+  position: absolute;
+  right: 15px;
+  top: 30px;
+  font-size: 140px;
+  color: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.id-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1c40f;
+  padding-bottom: 6px;
+}
+
+.id-card-state {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #f1c40f;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.id-card-type {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #dcdde1;
+  text-transform: uppercase;
+}
+
+.id-card-body {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.id-photo-box {
+  width: 90px;
+  height: 110px;
+  background: #2f3640;
+  border: 2px solid #f5f6fa;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.id-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.id-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  flex: 1;
+}
+
+.id-info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.id-info-item.full {
+  grid-column: span 2;
+}
+
+.id-info-label {
+  font-size: 8px;
+  font-weight: 700;
+  color: #a4b0be;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.id-info-val {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.id-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 6px;
+}
+
+.id-barcode-line {
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Weapon Forensic View */
+.weapon-spec-view {
+  width: 480px;
+  background: #0f141d;
+  border: 1px solid rgba(75, 123, 236, 0.4);
+  border-radius: 8px;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.weapon-spec-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.weapon-spec-name {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #4b7bec;
+}
+
+.weapon-spec-img {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  margin: 12px 0;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+}
+
+.weapon-spec-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.weapon-stat-row {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #4b7bec;
+}
+
+.weapon-stat-label {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.weapon-stat-val {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Tactical Weapon Workbench Modal (NoPixel 5.0 Weapon Stripper & Modding)
+   -------------------------------------------------------------------------- */
+.weapon-mod-box {
+  width: 680px;
+  max-width: 95vw;
+  background: rgba(16, 20, 27, 0.98);
+  border: 1px solid rgba(75, 123, 236, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon-mod-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  background: rgba(22, 28, 38, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weapon-mod-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.weapon-mod-title-group i {
+  color: #4b7bec;
+  font-size: 16px;
+}
+
+.weapon-mod-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.weapon-mod-serial {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #a4b0be;
+  font-family: monospace;
+}
+
+.weapon-mod-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.weapon-showcase-panel {
+  position: relative;
+  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.5) 0%, rgba(15, 20, 28, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 20px 20px 14px;
+  text-align: center;
+}
+
+.weapon-mod-preview-img {
+  height: 120px;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.8));
+}
+
+.weapon-condition-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cond-label {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+.condition-track {
+  width: 140px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.condition-fill {
+  height: 100%;
+  background: #2ecc71;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.cond-val {
+  font-family: 'Chakra Petch', sans-serif;
+  color: #ffffff;
+}
+
+.weapon-mod-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mod-column {
+  background: rgba(22, 28, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.mod-column-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #dcdde1;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mod-column-title i {
+  color: #4b7bec;
+}
+
+.mod-items-list {
+  min-height: 120px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mod-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #3498db;
+  transition: background 0.15s;
+}
+
+.mod-item-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mod-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mod-item-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.mod-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mod-item-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mod-item-type {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.btn-mod-action {
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-mod-action.detach {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+.btn-mod-action.detach:hover {
+  background: #e74c3c;
+  color: #ffffff;
+}
+
+.btn-mod-action.attach {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.btn-mod-action.attach:hover {
+  background: #2ecc71;
+  color: #ffffff;
+}
+
+.mod-empty-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  padding: 25px 0;
+  font-style: italic;
+}
+
+/* Pocket Restriction Visual State */
+.slot.pocket-restricted {
+  border-color: rgba(231, 76, 60, 0.6) !important;
+  background: rgba(231, 76, 60, 0.12) !important;
+}
+
+

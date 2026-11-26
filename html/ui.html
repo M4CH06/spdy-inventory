@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoPixel 5.0 Inventory</title>
+
+  <!-- Google Fonts: Chakra Petch (NoPixel 5.0 slanted font) & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,700;1,800;1,900&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <!-- jQuery & jQuery UI -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Main Inventory HUD -->
+  <div id="inventory-hud" style="display: none;">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav-bar">
+      <div class="brand-section">
+        <h1 class="inventory-title">INVENTORY</h1>
+        <div class="stash-switcher">
+          <button type="button" class="stash-pill active" id="btn-full-stash">FULL STASH</button>
+          <button type="button" class="stash-pill" id="btn-quick-stash">QUICK STASH</button>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs">
+          <button type="button" class="filter-btn active" data-filter="all" title="All Items">
+            <i class="fa-solid fa-table-cells-large"></i>
+          </button>
+          <button type="button" class="filter-btn" data-filter="weapon" title="Weapons">
+            <i class="fa-solid fa-gun"></i>
+          </button>
+          <button type="button" class="filter-btn" data-filter="ammo" title="Ammunition">
+            <i class="fa-solid fa-bullseye"></i>
+          </button>
+          <button type="button" class="filter-btn" data-filter="food" title="Food & Drink">
+            <i class="fa-solid fa-burger"></i>
+          </button>
+          <button type="button" class="filter-btn" data-filter="medical" title="Medical">
+            <i class="fa-solid fa-kit-medical"></i>
+          </button>
+          <button type="button" class="filter-btn" data-filter="tools" title="Tools & Misc">
+            <i class="fa-solid fa-box-open"></i>
+          </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="inventory-search" placeholder="SEARCH..." autocomplete="off" spellcheck="false">
+          <button type="button" id="search-clear" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Settings Button (NoPixel 5.0 Özelleştirme) -->
+        <button type="button" class="settings-btn" id="btn-inventory-settings" title="Inventory Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <main class="inventory-content">
+
+      <!-- LEFT: BODY & ACCESSORIES -->
+      <section class="column-body" id="col-body">
+        <!-- Body Equipment -->
+        <div class="section-card">
+          <div class="section-header">
+            <span class="section-title">BODY</span>
+            <div class="weight-indicator">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span id="body-weight">1.2</span>/<span id="body-max-weight">100.0</span>
+            </div>
+          </div>
+          <div class="body-slots-grid" data-inventory="body">
+            <!-- 8 Body slots with fallback watermark icons -->
+            <div class="slot equipment-slot" data-slot="radio" data-type="radio" title="Radio">
+              <i class="watermark-icon fa-solid fa-walkie-talkie"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="phone" data-type="phone" title="Phone">
+              <i class="watermark-icon fa-solid fa-mobile-screen"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="id" data-type="id" title="ID Card">
+              <i class="watermark-icon fa-solid fa-id-card"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="bag" data-type="bag" title="Bag">
+              <i class="watermark-icon fa-solid fa-bag-shopping"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="keys" data-type="keys" title="Keys">
+              <i class="watermark-icon fa-solid fa-key"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="armor" data-type="armor" title="Armor / Vest">
+              <i class="watermark-icon fa-solid fa-vest"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="wallet" data-type="wallet" title="Wallet">
+              <i class="watermark-icon fa-solid fa-wallet"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="cash" data-type="cash" title="Cash">
+              <i class="watermark-icon fa-solid fa-money-bill-wave"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessories -->
+        <div class="section-card" style="margin-top: 15px;">
+          <div class="section-header">
+            <span class="section-title">ACCESSORIES</span>
+          </div>
+          <div class="accessories-slots-grid" data-inventory="accessories">
+            <div class="slot equipment-slot" data-slot="mask" data-type="mask" title="Mask">
+              <i class="watermark-icon fa-solid fa-mask"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="hat" data-type="hat" title="Hat">
+              <i class="watermark-icon fa-solid fa-hat-cowboy"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="glasses" data-type="glasses" title="Glasses">
+              <i class="watermark-icon fa-solid fa-glasses"></i>
+            </div>
+            <div class="slot equipment-slot" data-slot="gloves" data-type="gloves" title="Gloves">
+              <i class="watermark-icon fa-solid fa-mitten"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CENTER: POCKETS & BACKPACK -->
+      <section class="column-pockets" id="col-pockets">
+        <!-- Pockets (Player 1-20) -->
+        <div class="section-card">
+          <div class="section-header">
+            <span class="section-title">POCKETS</span>
+            <div class="weight-indicator">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span id="player-inv-weight">0.0</span>/<span id="player-inv-maxweight">24.0</span>
+            </div>
+          </div>
+          <div class="slots-grid player-inventory" data-inventory="player" id="player-pockets-grid">
+            <!-- Dynamically populated slots -->
+          </div>
+        </div>
+
+        <!-- Backpack (Player 21-40) -->
+        <div class="section-card" style="margin-top: 15px;">
+          <div class="section-header">
+            <span class="section-title" id="backpack-title">BACKPACK</span>
+            <div class="weight-indicator">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span id="backpack-weight">0.0</span>/<span id="backpack-max-weight">25.0</span>
+            </div>
+          </div>
+          <div class="slots-grid backpack-inventory" data-inventory="player" id="player-backpack-grid">
+            <!-- Dynamically populated slots -->
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: SECONDARY INVENTORY (Ground, Stash, Trunk, Glovebox, Shop, Other Player) -->
+      <section class="column-other" id="col-other">
+        <div class="section-card other-card-full">
+          <div class="section-header">
+            <span class="section-title" id="other-inv-label">GROUND INVENTORY</span>
+            <div class="weight-indicator">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span id="other-inv-weight">0.0</span>/<span id="other-inv-maxweight">24.0</span>
+            </div>
+          </div>
+          <div class="slots-grid other-inventory" data-inventory="other" id="other-grid">
+            <!-- Dynamically populated slots -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Footer Hints -->
+    <footer class="bottom-hints-bar">
+      <div class="hint-item">
+        <span class="hint-circle"><i class="fa-regular fa-hand-pointer"></i></span>
+        <span class="hint-text">PICK UP</span>
+      </div>
+      <div class="hint-sep">/</div>
+      <div class="hint-item">
+        <span class="hint-circle"><i class="fa-regular fa-square-caret-right"></i></span>
+        <span class="hint-text">CONTEXT MENU</span>
+      </div>
+      <div class="hint-sep">/</div>
+      <div class="hint-item">
+        <span class="hint-circle"><i class="fa-solid fa-arrow-pointer"></i></span>
+        <span class="hint-text">USE ITEM</span>
+      </div>
+      <div class="hint-sep">/</div>
+      <div class="hint-item">
+        <span class="hint-key">L SHIFT</span>
+        <span class="hint-text">QUICK MOVE</span>
+      </div>
+      <div class="hint-sep">/</div>
+      <div class="hint-item">
+        <span class="hint-key">ESC</span>
+        <span class="hint-text">CLOSE</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Context Menu (Right Click) -->
+  <div id="context-menu" class="np-context-menu" style="display: none;">
+    <div class="context-item" id="ctx-use"><i class="fa-solid fa-play"></i> Use Item</div>
+    <div class="context-item" id="ctx-inspect"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Inspect / İncele</div>
+    <div class="context-item" id="ctx-mod-weapon" style="display: none;"><i class="fa-solid fa-screwdriver-wrench"></i> Modify / Modifiye Et</div>
+    <div class="context-item" id="ctx-insert-plate" style="display: none;"><i class="fa-solid fa-shield-halved"></i> Insert Plate / Plaka Tak</div>
+    <div class="context-item" id="ctx-give"><i class="fa-solid fa-hand-holding-hand"></i> Give Item</div>
+    <div class="context-item" id="ctx-split"><i class="fa-solid fa-divide"></i> Split Stack</div>
+    <div class="context-item" id="ctx-drop"><i class="fa-solid fa-trash-can"></i> Drop Item</div>
+    <div class="context-sep"></div>
+    <div class="context-item" id="ctx-close"><i class="fa-solid fa-xmark"></i> Cancel</div>
+  </div>
+
+  <!-- Split / Amount Modal -->
+  <div id="split-modal" class="np-modal-overlay" style="display: none;">
+    <div class="np-modal-box">
+      <div class="modal-title">SELECT AMOUNT</div>
+      <div class="modal-body">
+        <input type="number" id="split-input" min="1" max="10000" value="1" autocomplete="off">
+        <div class="quick-amounts">
+          <button type="button" class="quick-btn" data-amt="1">1</button>
+          <button type="button" class="quick-btn" data-amt="5">5</button>
+          <button type="button" class="quick-btn" data-amt="10">10</button>
+          <button type="button" class="quick-btn" data-amt="half">HALF</button>
+          <button type="button" class="quick-btn" data-amt="all">ALL</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn confirm" id="split-confirm">CONFIRM</button>
+        <button type="button" class="modal-btn cancel" id="split-cancel">CANCEL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings / Customization Modal (NoPixel 5.0 Özelleştirme) -->
+  <div id="settings-modal" class="np-modal-overlay" style="display: none;">
+    <div class="np-modal-box settings-modal-box">
+      <div class="modal-title"><i class="fa-solid fa-sliders"></i> INVENTORY SETTINGS</div>
+      <div class="modal-body settings-body">
+        
+        <!-- Default View Preference -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Default View Mode</span>
+            <span class="setting-desc">Preferred mode when opening inventory</span>
+          </div>
+          <select id="setting-view-mode" class="np-select">
+            <option value="auto">Auto (Smart)</option>
+            <option value="quick">Always Quick Stash</option>
+            <option value="full">Always Full Stash</option>
+          </select>
+        </div>
+
+        <!-- Body / Equipment Panel Toggle -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Body & Accessories</span>
+            <span class="setting-desc">Display equipment columns on the left</span>
+          </div>
+          <label class="np-switch">
+            <input type="checkbox" id="setting-show-body" checked>
+            <span class="np-slider"></span>
+          </label>
+        </div>
+
+        <!-- Background Blur Toggle -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Background Blur</span>
+            <span class="setting-desc">Cinematic blur effect when open</span>
+          </div>
+          <label class="np-switch">
+            <input type="checkbox" id="setting-show-blur" checked>
+            <span class="np-slider"></span>
+          </label>
+        </div>
+
+        <!-- Durability Bars Toggle -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Durability Bars</span>
+            <span class="setting-desc">Show quality bars on item slots</span>
+          </div>
+          <label class="np-switch">
+            <input type="checkbox" id="setting-show-durability" checked>
+            <span class="np-slider"></span>
+          </label>
+        </div>
+
+        <!-- UI Scale -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label" id="setting-lbl-scale">UI Scale</span>
+            <span class="setting-desc" id="setting-desc-scale">Adjust size of slots & text</span>
+          </div>
+          <select id="setting-ui-scale" class="np-select">
+            <option value="0.9">90% (Compact)</option>
+            <option value="1.0" selected>100% (Default)</option>
+            <option value="1.1">110% (Large)</option>
+          </select>
+        </div>
+
+        <!-- Language / Dil Seçimi -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label" id="setting-lbl-lang">Language / Dil</span>
+            <span class="setting-desc" id="setting-desc-lang">Select inventory language</span>
+          </div>
+          <select id="setting-ui-lang" class="np-select">
+            <option value="tr" selected>Türkçe (TR)</option>
+            <option value="en">English (EN)</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn confirm" id="settings-save">SAVE & CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Item Inspect Modal (NoPixel 5.0 Documents, Evidence, Notes, Photos) -->
+  <div id="inspect-modal" class="np-modal-overlay" style="display: none;">
+    <div class="np-modal-box inspect-modal-box">
+      <div class="inspect-header">
+        <span class="inspect-title" id="inspect-modal-title">DOCUMENT INSPECT</span>
+        <button type="button" class="inspect-close" id="inspect-modal-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="inspect-content" id="inspect-modal-body">
+        <!-- Dynamically rendered document/evidence/photo -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Tactical Weapon Workbench Modal (NoPixel 5.0 Weapon Stripper & Attachment Modding) -->
+  <div id="weapon-mod-modal" class="np-modal-overlay" style="display: none;">
+    <div class="np-modal-box weapon-mod-box">
+      <div class="weapon-mod-header">
+        <div class="weapon-mod-title-group">
+          <i class="fa-solid fa-gun"></i>
+          <span class="weapon-mod-title" id="weapon-mod-title">WEAPON MODIFICATION</span>
+          <span class="weapon-mod-serial" id="weapon-mod-serial">SN: NP5-84920</span>
+        </div>
+        <button type="button" class="inspect-close" id="weapon-mod-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="weapon-mod-body">
+        <!-- Center Weapon Display -->
+        <div class="weapon-showcase-panel">
+          <div class="weapon-reticle-overlay"></div>
+          <img id="weapon-mod-image" class="weapon-mod-preview-img" src="images/weapon_pistol.png" alt="Weapon Preview">
+          <div class="weapon-condition-indicator">
+            <span class="cond-label">INTEGRITY</span>
+            <div class="condition-track"><div id="weapon-mod-condition-fill" class="condition-fill" style="width: 100%;"></div></div>
+            <span id="weapon-mod-condition-text" class="cond-val">100%</span>
+          </div>
+        </div>
+
+        <!-- Split Columns -->
+        <div class="weapon-mod-columns">
+          <!-- Column 1: Installed Attachments -->
+          <div class="mod-column installed-col">
+            <div class="mod-column-title">
+              <i class="fa-solid fa-link"></i> INSTALLED ATTACHMENTS
+            </div>
+            <div class="mod-items-list" id="installed-attachments-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Column 2: Available Attachments in Inventory -->
+          <div class="mod-column available-col">
+            <div class="mod-column-title">
+              <i class="fa-solid fa-box-open"></i> COMPATIBLE INVENTORY ITEMS
+            </div>
+            <div class="mod-items-list" id="available-attachments-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Item Details Tooltip Card -->
+  <div id="item-tooltip" class="np-item-tooltip" style="display: none;">
+    <div class="tooltip-header">
+      <span class="tooltip-title" id="tooltip-title">Item Name</span>
+      <span class="tooltip-count" id="tooltip-count">x1</span>
+    </div>
+    <div class="tooltip-divider"></div>
+    <div class="tooltip-description" id="tooltip-description">Item description goes here...</div>
+    <div class="tooltip-meta" id="tooltip-meta"></div>
+    <div class="tooltip-durability" id="tooltip-durability-wrapper" style="display: none;">
+      <div class="durability-label"><span>Durability</span><span id="tooltip-durability-text">100%</span></div>
+      <div class="durability-track">
+        <div class="durability-fill" id="tooltip-durability-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- In-Game Hotbar HUD (Shown on Key Press e.g. 'Z') -->
+  <div id="hotbar-hud" class="np-hotbar-hud" style="display: none;">
+    <div class="hotbar-slots-container">
+      <!-- 5 hotbar slots -->
+    </div>
+  </div>
+
+  <!-- Item Pickup / Add / Remove Notification Boxes -->
+  <div id="itemboxes-container" class="itemboxes-container"></div>
+
+  <!-- Required Item UI Notification -->
+  <div id="requiredItem-container" class="requiredItem-container"></div>
+
+  <!-- Custom Scripts -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
