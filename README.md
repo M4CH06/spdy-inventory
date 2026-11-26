@@ -17,7 +17,6 @@
 
 [📥 İndir](https://github.com/M4CH06/spdy-inventory/releases) •
 [🐛 Hata Bildir](https://github.com/M4CH06/spdy-inventory/issues) •
-[💬 Discord](https://discord.gg/DISCORD_DAVET) •
 [📺 Tanıtım Videosu](https://youtube.com/VIDEO_LINKI)
 
 </div>
