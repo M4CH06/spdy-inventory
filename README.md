@@ -2,7 +2,7 @@
 
 # 🎒 SPDY-INVENTORY
 
-**Nopixel V Style Inventory System "inspired" **
+**Nopixel V Style Inventory System inspired***
 
 [![Forks](https://img.shields.io/github/forks/M4CH06/spdy-inventory?style=for-the-badge&logo=github&color=blue)](https://github.com/M4CH06/spdy-inventory/network/members)
 [![Issues](https://img.shields.io/github/issues/M4CH06/spdy-inventory?style=for-the-badge&color=red)](https://github.com/M4CH06/spdy-inventory/issues)
