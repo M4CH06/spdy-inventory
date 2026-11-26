@@ -76,18 +76,18 @@
 
 ---
 
-## ❓ Sık Sorulan Sorular
+## ❓ Frequently Asked Questions
 
 <details>
-<summary><b>Eski envanterden veriler taşınır mı?</b></summary>
+<summary><b>Is data carried over from the old inventory?</b></summary>
 
-Evet, veritabanı yapısı değişmediyse mevcut veriler çalışmaya devam eder. Güncellemeden önce mutlaka yedek al.
+Yes, if the database structure hasn't changed, your existing data will keep working. Always make a backup before updating.
 </details>
 
 <details>
-<summary><b>Başka scriptlerle çalışır mı?</b></summary>
+<summary><b>Does it work with other scripts?</b></summary>
 
-`qb-inventory` export'larını kullanan scriptlerle uyumludur. Sorun yaşarsan [issue](https://github.com/M4CH06/spdy-inventory/issues) aç.
+It is compatible with scripts that use the `qb-inventory` exports. If you run into problems, open an [issue](https://github.com/M4CH06/spdy-inventory/issues).
 </details>
 
 ---
