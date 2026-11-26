@@ -13,23 +13,22 @@
 [![Repo Size](https://img.shields.io/github/repo-size/M4CH06/spdy-inventory?style=flat-square&label=Boyut)](https://github.com/M4CH06/spdy-inventory)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=M4CH06%2Fspdy-inventory&label=Görüntülenme&countColor=%23263759&style=flat-square)
 
-[📥 İndir](https://github.com/M4CH06/spdy-inventory/releases) •
-[🐛 Hata Bildir](https://github.com/M4CH06/spdy-inventory/issues) •
-[📺 Tanıtım Videosu](https://youtube.com/VIDEO_LINKI)
+[🐛 Bug Report](https://github.com/M4CH06/spdy-inventory/issues) •
+[📺 Preview Video](https://youtube.com/VIDEO_LINKI)
 
 </div>
 
 ---
 
-## 📸 Önizleme
+## 📸 Preview
 
 <div align="center">
 
-| Ana Envanter | Eşya Detayı |
+| Main Inventory | Item Details |
 |:---:|:---:|
 | <img src="assets/preview1.png" width="450"> | <img src="assets/preview2.png" width="450"> |
 
-| Çanta / Depo | Mobil Uyumlu Hotbar |
+| Bag / Stash | Other |
 |:---:|:---:|
 | <img src="assets/preview3.png" width="450"> | <img src="assets/preview4.png" width="450"> |
 
@@ -53,13 +52,13 @@
 
 ---
 
-## 📋 Gereksinimler
+## 📋 Requirements
 
-| Bağımlılık | Durum |
+| Requirements | Status |
 |---|---|
-| [qb-core](https://github.com/qbcore-framework/qb-core) | ✅ Zorunlu |
-| [oxmysql](https://github.com/overextended/oxmysql) | ✅ Zorunlu |
-| [qb-weapons](https://github.com/qbcore-framework/qb-weapons) | ✅ Zorunlu |
+| [qb-core](https://github.com/qbcore-framework/qb-core) | ✅ Required |
+| [oxmysql](https://github.com/overextended/oxmysql) | ✅ Required |
+| [qb-weapons](https://github.com/qbcore-framework/qb-weapons) | ✅ Required |
 
 ---
 
@@ -92,13 +91,13 @@ It is compatible with scripts that use the `qb-inventory` exports. If you run in
 
 ---
 
-## 🗺️ Yol Haritası
+## 🗺️ Road map
 
-- [x] Yeni arayüz
-- [x] Hotbar sistemi
-- [ ] Eşya kategorileri
-- [ ] Tema seçenekleri
-- [ ] Ox_inventory köprüsü
+- [x] Fix UI
+- [x] Bag system
+- [ ] Craft etc.
+- [ ] Theme Edit
+- [ ] Ox_inventory bridge
 
 ---
 
@@ -112,7 +111,7 @@ It is compatible with scripts that use the `qb-inventory` exports. If you run in
 
 ---
 
-## ⭐ Star Geçmişi
+## ⭐ Star History
 
 <div align="center">
 
@@ -122,17 +121,17 @@ It is compatible with scripts that use the `qb-inventory` exports. If you run in
 
 ---
 
-## 📜 Lisans & Teşekkür
+## 📜 License & Acknowledgements
 
-Bu proje, [QBCore Framework](https://github.com/qbcore-framework) tarafından geliştirilen **qb-inventory** kaynağından türetilmiştir ve orijinal projeyle aynı şekilde **[GNU GPL v3.0](LICENSE)** lisansı altında yayınlanmıştır.
+This project is derived from the **qb-inventory** resource developed by the [QBCore Framework](https://github.com/qbcore-framework) and is released under the **[GNU GPL v3.0](LICENSE)** license, the same as the original project.
 
-- Orijinal proje: [qbcore-framework/qb-inventory](https://github.com/qbcore-framework/qb-inventory)
-- Tüm orijinal geliştiricilere teşekkürler 💙
+- Original project: [qbcore-framework/qb-inventory](https://github.com/qbcore-framework/qb-inventory)
+- Thanks to the original developers 💙
 
 ---
 
 <div align="center">
 
-**Beğendiysen ⭐ vermeyi unutma!**
+**Don't forget to give it a ⭐ if you like it!**
 
 </div>
