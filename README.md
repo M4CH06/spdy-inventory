@@ -15,11 +15,6 @@
 [![Repo Size](https://img.shields.io/github/repo-size/M4CH06/spdy-inventory?style=flat-square&label=Boyut)](https://github.com/M4CH06/spdy-inventory)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=M4CH06%2Fspdy-inventory&label=Görüntülenme&countColor=%23263759&style=flat-square)
 
-![FiveM](https://img.shields.io/badge/FiveM-Ready-orange?style=flat-square)
-![QBCore](https://img.shields.io/badge/QBCore-Compatible-blueviolet?style=flat-square)
-![Lua](https://img.shields.io/badge/Lua-5.4-2C2D72?style=flat-square&logo=lua)
-![NUI](https://img.shields.io/badge/NUI-HTML%20%7C%20CSS%20%7C%20JS-E34F26?style=flat-square&logo=html5&logoColor=white)
-
 [📥 İndir](https://github.com/M4CH06/spdy-inventory/releases) •
 [🐛 Hata Bildir](https://github.com/M4CH06/spdy-inventory/issues) •
 [💬 Discord](https://discord.gg/DISCORD_DAVET) •
