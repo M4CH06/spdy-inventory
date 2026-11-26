@@ -1,1 +1,150 @@
-# spdy-inventory
+<div align="center">
+
+# 🎒 SPDY-INVENTORY
+
+**QBCore için modern, hızlı ve tamamen yeniden tasarlanmış envanter sistemi**
+
+[![Stars](https://img.shields.io/github/stars/M4CH06/spdy-inventory?style=for-the-badge&logo=github&color=yellow)](https://github.com/M4CH06/spdy-inventory/stargazers)
+[![Forks](https://img.shields.io/github/forks/M4CH06/spdy-inventory?style=for-the-badge&logo=github&color=blue)](https://github.com/M4CH06/spdy-inventory/network/members)
+[![Issues](https://img.shields.io/github/issues/M4CH06/spdy-inventory?style=for-the-badge&color=red)](https://github.com/M4CH06/spdy-inventory/issues)
+[![License](https://img.shields.io/github/license/M4CH06/spdy-inventory?style=for-the-badge&color=green)](LICENSE)
+
+[![Downloads](https://img.shields.io/github/downloads/M4CH06/spdy-inventory/total?style=flat-square&logo=github&label=İndirme)](https://github.com/M4CH06/spdy-inventory/releases)
+[![Last Commit](https://img.shields.io/github/last-commit/M4CH06/spdy-inventory?style=flat-square&label=Son%20Güncelleme)](https://github.com/M4CH06/spdy-inventory/commits)
+[![Release](https://img.shields.io/github/v/release/M4CH06/spdy-inventory?style=flat-square&label=Sürüm)](https://github.com/M4CH06/spdy-inventory/releases)
+[![Repo Size](https://img.shields.io/github/repo-size/M4CH06/spdy-inventory?style=flat-square&label=Boyut)](https://github.com/M4CH06/spdy-inventory)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=M4CH06%2Fspdy-inventory&label=Görüntülenme&countColor=%23263759&style=flat-square)
+
+![FiveM](https://img.shields.io/badge/FiveM-Ready-orange?style=flat-square)
+![QBCore](https://img.shields.io/badge/QBCore-Compatible-blueviolet?style=flat-square)
+![Lua](https://img.shields.io/badge/Lua-5.4-2C2D72?style=flat-square&logo=lua)
+![NUI](https://img.shields.io/badge/NUI-HTML%20%7C%20CSS%20%7C%20JS-E34F26?style=flat-square&logo=html5&logoColor=white)
+
+[📥 İndir](https://github.com/M4CH06/spdy-inventory/releases) •
+[🐛 Hata Bildir](https://github.com/M4CH06/spdy-inventory/issues) •
+[💬 Discord](https://discord.gg/DISCORD_DAVET) •
+[📺 Tanıtım Videosu](https://youtube.com/VIDEO_LINKI)
+
+</div>
+
+---
+
+## 📸 Önizleme
+
+<div align="center">
+
+| Ana Envanter | Eşya Detayı |
+|:---:|:---:|
+| <img src="assets/preview1.png" width="450"> | <img src="assets/preview2.png" width="450"> |
+
+| Çanta / Depo | Mobil Uyumlu Hotbar |
+|:---:|:---:|
+| <img src="assets/preview3.png" width="450"> | <img src="assets/preview4.png" width="450"> |
+
+</div>
+
+---
+
+## ✨ Özellikler
+
+- 🎨 **Sıfırdan tasarlanmış modern arayüz** (NUI)
+- ⚡ Düşük kaynak kullanımı (idle `0.00ms`)
+- 🖱️ Sürükle & bırak eşya yönetimi
+- 🔢 Hızlı hotbar (1-5 tuşları)
+- 📦 Depo, bagaj, torpido ve zula desteği
+- 🛒 Dükkan sistemi desteği
+- 🔍 Eşya arama ve filtreleme
+- 🎚️ Ağırlık ve slot sistemi
+- 🌐 Çoklu dil desteği (TR / EN)
+- 🔌 `qb-inventory` export ve event'leri ile uyumlu
+- 🛠️ Kolay yapılandırılabilir `config.lua`
+
+---
+
+## 📋 Gereksinimler
+
+| Bağımlılık | Durum |
+|---|---|
+| [qb-core](https://github.com/qbcore-framework/qb-core) | ✅ Zorunlu |
+| [oxmysql](https://github.com/overextended/oxmysql) | ✅ Zorunlu |
+| [qb-weapons](https://github.com/qbcore-framework/qb-weapons) | ✅ Zorunlu |
+
+---
+
+#
+> [!NOTE]
+> Script adını değiştirdiysen, `qb-inventory` export'unu çağıran diğer scriptlerde `exports['qb-inventory']` ifadesini `exports['spdy-inventory']` ile değiştirmen gerekir.
+
+---
+
+## 🔌 Export & Event Listesi
+
+| Export | Açıklama |
+|---|---|
+| `AddItem(source, item, amount, slot, info)` | Oyuncuya eşya ekler |
+| `RemoveItem(source, item, amount, slot)` | Oyuncudan eşya siler |
+| `GetItemByName(source, item)` | Eşya bilgisini döndürür |
+| `HasItem(source, item, amount)` | Eşya kontrolü yapar |
+
+---
+
+## ❓ Sık Sorulan Sorular
+
+<details>
+<summary><b>Eski envanterden veriler taşınır mı?</b></summary>
+
+Evet, veritabanı yapısı değişmediyse mevcut veriler çalışmaya devam eder. Güncellemeden önce mutlaka yedek al.
+</details>
+
+<details>
+<summary><b>Başka scriptlerle çalışır mı?</b></summary>
+
+`qb-inventory` export'larını kullanan scriptlerle uyumludur. Sorun yaşarsan [issue](https://github.com/M4CH06/spdy-inventory/issues) aç.
+</details>
+
+---
+
+## 🗺️ Yol Haritası
+
+- [x] Yeni arayüz
+- [x] Hotbar sistemi
+- [ ] Eşya kategorileri
+- [ ] Tema seçenekleri
+- [ ] Ox_inventory köprüsü
+
+---
+
+## 🤝 Katkıda Bulunma
+
+1. Repoyu **fork**'la
+2. Yeni bir branch aç (`git checkout -b ozellik/yeni-ozellik`)
+3. Değişikliklerini commit'le (`git commit -m 'Yeni özellik eklendi'`)
+4. Branch'i push'la (`git push origin ozellik/yeni-ozellik`)
+5. **Pull Request** aç
+
+---
+
+## ⭐ Star Geçmişi
+
+<div align="center">
+
+[![Star History Chart](https://api.star-history.com/svg?repos=M4CH06/spdy-inventory&type=Date)](https://star-history.com/#M4CH06/spdy-inventory&Date)
+
+</div>
+
+---
+
+## 📜 Lisans & Teşekkür
+
+Bu proje, [QBCore Framework](https://github.com/qbcore-framework) tarafından geliştirilen **qb-inventory** kaynağından türetilmiştir ve orijinal projeyle aynı şekilde **[GNU GPL v3.0](LICENSE)** lisansı altında yayınlanmıştır.
+
+- Orijinal proje: [qbcore-framework/qb-inventory](https://github.com/qbcore-framework/qb-inventory)
+- Tüm orijinal geliştiricilere teşekkürler 💙
+
+---
+
+<div align="center">
+
+**Beğendiysen ⭐ vermeyi unutma!**
+
+</div>
