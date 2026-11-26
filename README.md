@@ -2,15 +2,13 @@
 
 # 🎒 SPDY-INVENTORY
 
-**QBCore için modern, hızlı ve tamamen yeniden tasarlanmış envanter sistemi**
+**Nopixel V Style Inventory System "inspired" **
 
-[![Stars](https://img.shields.io/github/stars/M4CH06/spdy-inventory?style=for-the-badge&logo=github&color=yellow)](https://github.com/M4CH06/spdy-inventory/stargazers)
 [![Forks](https://img.shields.io/github/forks/M4CH06/spdy-inventory?style=for-the-badge&logo=github&color=blue)](https://github.com/M4CH06/spdy-inventory/network/members)
 [![Issues](https://img.shields.io/github/issues/M4CH06/spdy-inventory?style=for-the-badge&color=red)](https://github.com/M4CH06/spdy-inventory/issues)
 [![License](https://img.shields.io/github/license/M4CH06/spdy-inventory?style=for-the-badge&color=green)](LICENSE)
 
 [![Downloads](https://img.shields.io/github/downloads/M4CH06/spdy-inventory/total?style=flat-square&logo=github&label=İndirme)](https://github.com/M4CH06/spdy-inventory/releases)
-[![Last Commit](https://img.shields.io/github/last-commit/M4CH06/spdy-inventory?style=flat-square&label=Son%20Güncelleme)](https://github.com/M4CH06/spdy-inventory/commits)
 [![Release](https://img.shields.io/github/v/release/M4CH06/spdy-inventory?style=flat-square&label=Sürüm)](https://github.com/M4CH06/spdy-inventory/releases)
 [![Repo Size](https://img.shields.io/github/repo-size/M4CH06/spdy-inventory?style=flat-square&label=Boyut)](https://github.com/M4CH06/spdy-inventory)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=M4CH06%2Fspdy-inventory&label=Görüntülenme&countColor=%23263759&style=flat-square)
