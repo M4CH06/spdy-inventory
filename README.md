@@ -69,11 +69,11 @@
 
 ---
 
-## 🔌 Export & Event Listesi
+## 🔌 Export & Event List
 
-| Export | Açıklama |
+| Export |
 |---|---|
-| `https://qbcore.net/docs/resources/qb-inventory` | qb-inventory official docs |
+| [qb-inventory official docs](https://qbcore.net/docs/resources/qb-inventory) |
 
 ---
 
