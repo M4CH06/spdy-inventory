@@ -72,8 +72,7 @@
 ## 🔌 Export & Event List
 
 | Export |
-|---|---|
-| [qb-inventory official docs](https://qbcore.net/docs/resources/qb-inventory) |
+| [qb-inventory Official Docs](https://qbcore.net/docs/resources/qb-inventory) |
 
 ---
 
